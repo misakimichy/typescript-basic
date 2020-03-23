@@ -82,10 +82,45 @@ const tuple2: [string, number] = ['https://www.youtube.com', 12, 'hello', 23];
 
 /*
 
-Enums!
+Enums
 
 */
 
 import { Age } from './age.enum';
 
 const totalAge = (age1: Age, age2: Age) => age1 + age2;
+
+
+/*
+
+Object
+
+*/
+const object1: object = {};
+const object2: Object = undefined;
+
+// Cannot assign NaN to object
+const object3: object = NaN;
+
+const object4: {} = undefined;
+const object5: {} = {};
+
+/*
+
+Parameters
+
+*/
+
+import { Person } from './person.model'
+const add = (val1: number, val2: number) => val1 + val2;
+
+add(1, 2)
+
+// This will return an error
+add(1, 'hello')
+
+const sayHello = (person: Person) => {
+    return `Say Hello to my friend, ${person.firstName}.`
+}
+
+sayHello(new Person({firstName: 'Taro'}));
