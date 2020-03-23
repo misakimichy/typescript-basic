@@ -3,7 +3,6 @@
 Basic of Types Script
 
 */
-
 let example1: boolean = true;
 console.log('hello');
 
@@ -18,11 +17,11 @@ let example4: string;
 example4 = "Hello World"
 
 let example5: undefined = undefined;
-
 let example6: null = null;
 
 const arrayExample: number[] = [1, 3, 4, 5];
 let example7 = arrayExample.reduce((num1, num2) => num1 + num2);
+
 
 /*
 
@@ -32,7 +31,6 @@ Check class data types from
 import { Bear } from './bear.model';
 
 const bear = new Bear(3);
-
 if (bear instanceof Bear) {
     console.log("Hello from TypeScript");
 }
@@ -43,7 +41,6 @@ if (bear instanceof Bear) {
 Type Assertions
 
 */
-
 let notAString: any = 'I am a string';
 
 // notAString type is 'any', so you need to cast the data type when you want to use it as a string.
@@ -85,7 +82,6 @@ const tuple2: [string, number] = ['https://www.youtube.com', 12, 'hello', 23];
 Enums
 
 */
-
 import { Age } from './age.enum';
 
 const totalAge = (age1: Age, age2: Age) => age1 + age2;
@@ -103,24 +99,87 @@ const object2: Object = undefined;
 const object3: object = NaN;
 
 const object4: {} = undefined;
-const object5: {} = {};
+
+// Assign datatype for key-value
+type person = {firstName: string}
+const object5: person = {firstName: 'Taro'};
+object5.firstName = 'Hanako';
+
 
 /*
 
-Parameters
+User Model and Parameters
 
 */
-
 import { Person } from './person.model'
-const add = (val1: number, val2: number) => val1 + val2;
+const model1: Person = new Person({firstName: 'Taro'})
+model1.firstName = 'Hanako';
+model1.middleName = 'Type Script';
+model1.lastName = 'Frontend';
 
-add(1, 2)
+const addValue = (val1: number, val2: number) => val1 + val2;
+
+addValue(1, 2)
 
 // This will return an error
-add(1, 'hello')
+addValue(1, 'hello')
 
 const sayHello = (person: Person) => {
     return `Say Hello to my friend, ${person.firstName}.`
 }
 
 sayHello(new Person({firstName: 'Taro'}));
+
+
+/*
+
+Return types
+
+*/
+const addValueWithReturnType = (val1: number, val2: number): number => val1 + val2;
+
+const sayHelloWithReturnType = (person: Person): string => {
+    return `Say Hello to my friend, ${person.firstName}.`
+}
+
+const voidExample = (): void => {
+    addValueWithReturnType(1, 2);
+}
+
+// Doesn't return a value nor doesn't call a function.
+const neverExample = (): never => {
+    throw Error;
+}
+
+
+/*
+
+Interfaces
+
+*/
+import { IPerson } from './person.interface'
+const interface1: IPerson = {
+    firstName: 'Taro',
+    middleName: 'JavaScript',
+    lastName: 'Frontend'
+};
+interface1.firstName = 'Hanako';
+interface1.middleName = 'Type Script';
+interface1.lastName = 'Frontend';
+
+
+/*
+
+Barrels
+
+*/
+// We can create multiple interfaces and export from index file.
+import { IBear, IMan, IPig } from './interfaces'
+
+
+/*
+
+Models
+
+*/
+
