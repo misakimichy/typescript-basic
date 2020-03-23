@@ -170,16 +170,20 @@ interface1.lastName = 'Frontend';
 
 /*
 
-Barrels
+Barrels and Intersection Types
 
 */
+// Barrels
 // We can create multiple interfaces and export from index file.
 import { IBear, IMan, IPig } from './interfaces'
 
+let man1: IMan | IBear;
+let bear1: IBear;
+let pig1: IPig;
 
-/*
-
-Models
-
-*/
-
+// Inherit three interfaces and create a new type then assign it
+type ManBearPig = IBear & IMan & IPig;
+let manBearPig: ManBearPig
+manBearPig.firstName = 'George';
+manBearPig.claws = 4;
+manBearPig.bacon = false;
