@@ -124,10 +124,7 @@ addValue(1, 2)
 // This will return an error
 addValue(1, 'hello')
 
-const sayHello = (person: Person) => {
-    return `Say Hello to my friend, ${person.firstName}.`
-}
-
+const sayHello = (person: Person) => `Say Hello to my friend, ${person.firstName}.`;
 sayHello(new Person({firstName: 'Taro'}));
 
 
@@ -138,9 +135,7 @@ Return types
 */
 const addValueWithReturnType = (val1: number, val2: number): number => val1 + val2;
 
-const sayHelloWithReturnType = (person: Person): string => {
-    return `Say Hello to my friend, ${person.firstName}.`
-}
+const sayHelloWithReturnType = (person: Person): string => `Say Hello to my friend, ${person.firstName}.`;
 
 const voidExample = (): void => {
     addValueWithReturnType(1, 2);
@@ -187,3 +182,36 @@ let manBearPig: ManBearPig
 manBearPig.firstName = 'George';
 manBearPig.claws = 4;
 manBearPig.bacon = false;
+
+
+/*
+
+Generics
+
+*/
+function genericExample1<T>(arg: T): T {
+    return arg;
+}
+genericExample1(5);
+
+// Need to extends from {} to use generics with arrow function
+const genericExample1Arrow = <T extends {} >(arg: T): T => arg;
+genericExample1Arrow(5);
+
+// When array is going to be an argument
+function genericExample2<T>(arg: T[]): T []{
+    return arg;
+}
+genericExample2([1, 2, 3])
+
+const genericExample2Arrow = <T extends {}>(arg: T[]): T => arg[0];
+genericExample2Arrow([1, 2, 3])
+
+// Return index 0
+function genericExample3<T>(arg: T[]): T []{
+    return arg;
+}
+genericExample3([1, 2, 3])
+
+const genericExample3Arrow = <T extends {}>(arg: T[]): T => arg[0];
+genericExample3Arrow([1, 2, 3])
