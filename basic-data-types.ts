@@ -215,3 +215,29 @@ genericExample3([1, 2, 3])
 
 const genericExample3Arrow = <T extends {}>(arg: T[]): T => arg[0];
 genericExample3Arrow([1, 2, 3])
+
+
+/*
+
+Access Modifier
+
+*/
+import { BearAccessModifier } from './bear.model.access.modifier';
+import { Animal } from './animal.model';
+
+const bearAccessModifier = new BearAccessModifier({name: 'Poo', tail: true});
+bear.claws = 3;
+
+// This will return an error since name is readonly
+bear.name = 'Omega';
+
+// This will return an error since tail is private
+bear.tail = false;
+
+// This doesn't work because add method is public.
+// You don't need to instantiate a class
+bear.add(1, 2)
+
+// Those work
+BearAccessModifier.add(1, 2); // using a public method
+bearAccessModifier.addTwo(1, 2); // using a private method
