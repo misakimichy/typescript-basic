@@ -1,6 +1,6 @@
 # Basic TypeScript Repo
 
-#### _Basic TypeScript_ Last Update 03/24/2020_
+#### _Basic TypeScript: Last Update 03/24/2020_
 
 I followed a tutorial [Introduction to TypeScript](https://scrimba.com/g/gintrototypescript) at [Scrimba.com](https://scrimba.com/)
 
