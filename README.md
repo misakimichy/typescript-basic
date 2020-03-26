@@ -39,7 +39,7 @@ $ tsc filename.ts
 ## Installation:
 Clone this repo and play with the codes
 ```
-$ git clone hhttps://github.com/misakimichy/typescript-basic.git
+$ git clone https://github.com/misakimichy/typescript-basic.git
 ```
 
 
